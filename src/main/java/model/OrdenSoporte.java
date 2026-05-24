@@ -1,5 +1,7 @@
 package model;
 
+import java.time.LocalDate;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -12,7 +14,9 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.DynamicInsert;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
@@ -20,6 +24,8 @@ import lombok.Setter;
 @Getter
 @Setter
 @DynamicInsert
+@AllArgsConstructor
+@NoArgsConstructor
 
 public class OrdenSoporte {
 	@Id
@@ -28,7 +34,7 @@ public class OrdenSoporte {
 	private Integer nroOrden;
 	
 	@Column(name ="fecha_registro")
-	private String fechaRegistro;
+	private LocalDate fechaRegistro;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name ="id_tecnico")
